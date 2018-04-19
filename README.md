@@ -26,6 +26,10 @@ In a word, it gets all your learned words then order them by categories and gene
 
 ## How to use
 
+Install dependencies:
+
+`pip3 install requests`
+
 First, put your account user name and password in the main.py; then simply just run:
 
 `python3 main.py`
