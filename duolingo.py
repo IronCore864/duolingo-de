@@ -81,7 +81,7 @@ class Duolingo:
             all_related_words = self._get_related_vocabs(v, processed, vocabularies)
             self._output_vocab(all_related_words, all)
 
-        with open("output", "w") as f:
+        with open("docs/output", "w") as f:
             for type, vocab_list in all.items():
                 f.write(type + "\n")
                 for v in vocab_list:
