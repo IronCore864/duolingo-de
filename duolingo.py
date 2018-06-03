@@ -5,11 +5,11 @@ from de_en_translator import DEtoENTranslator
 
 
 class Duolingo:
-    def login(self, user, pwd):
+    def __init__(self, user, pwd):
         self.user = user
         self.pwd = pwd
 
-    def _get_auth_token(self):
+    def _get_cookies(self):
         payload = {"identifier": self.user, "password": self.pwd}
         headers = {
             'Accept': 'application/json, text/javascript, */*',
@@ -26,18 +26,18 @@ class Duolingo:
             headers=headers
         )
         if r.status_code == 201:
-            return r.cookies['auth_tkt']
+            return r.cookies
         else:
             print("login error")
 
     def _get_vocabulary_overview(self):
-        auth_token = self._get_auth_token()
-        headers = {
-            'Cookie': 'auth_tkt={};'.format(auth_token)
-        }
+        cookies = self._get_cookies()
+        cookies_dict = {}
+        for k, v in cookies.iteritems():
+            cookies_dict[k] = v
         r = requests.get(
             "https://www.duolingo.com/vocabulary/overview",
-            headers=headers
+            cookies=cookies_dict
         )
         return (r.text)
 
