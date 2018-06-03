@@ -24,11 +24,15 @@ For now, you can just use my script to do so.
 
 In a word, it gets all your learned words then order them by categories and generate a word list, with English translations and translated by Duolingo.
 
+## Dependency
+
+Python3 and requests.
+
 ## How to use
 
 Install dependencies:
 
-`pip3 install requests`
+`pip3 install -r requirements.txt`
 
 First, put your account user name and password in the main.py; then simply just run:
 
@@ -36,10 +40,7 @@ First, put your account user name and password in the main.py; then simply just 
 
 Which will generate an `output` file containing the word list sorted by categories.
 
-## Dependency
-
-Python, requests.
-
 ## Example Output
 
 See file `output`
+
